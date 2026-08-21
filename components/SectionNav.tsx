@@ -3,14 +3,16 @@
 import { useEffect, useState } from "react";
 import { labels } from "@/lib/content";
 
-const SECTIONS = [
+type SectionId = "now" | "work" | "projects";
+
+const SECTIONS: { id: SectionId; label: string }[] = [
   { id: "now", label: labels.now },
   { id: "work", label: labels.work },
   { id: "projects", label: labels.projects },
-] as const;
+];
 
 export function SectionNav() {
-  const [active, setActive] = useState<string>(SECTIONS[0].id);
+  const [active, setActive] = useState<SectionId>("now");
 
   useEffect(() => {
     const elements = SECTIONS.map((section) => document.getElementById(section.id)).filter(
@@ -32,7 +34,7 @@ export function SectionNav() {
         return;
       }
 
-      let next = SECTIONS[0].id;
+      let next: SectionId = "now";
       let best = 0;
       for (const section of SECTIONS) {
         const node = document.getElementById(section.id);
