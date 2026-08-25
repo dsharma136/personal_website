@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { DotCanvas } from "@/components/DotCanvas";
 import { labels, profile, siteMeta } from "@/lib/content";
 import { getSiteUrl } from "@/lib/site";
@@ -66,6 +67,7 @@ export default function RootLayout({
           {labels.skipToContent}
         </a>
         {children}
+        <Analytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
