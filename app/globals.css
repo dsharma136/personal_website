@@ -129,6 +129,11 @@
     background-color: var(--hairline);
   }
 
+  .section-readout-index {
+    color: var(--signal);
+    font-variant-numeric: tabular-nums;
+  }
+
   .type-body {
     font-size: 16px;
     font-weight: 400;

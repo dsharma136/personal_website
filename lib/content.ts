@@ -12,10 +12,25 @@ export const profile = {
 
 export const labels = {
   now: "NOW",
-  work: "WORK",
+  work: "WORK EXPERIENCE",
+  publications: "PUBLICATIONS",
   projects: "PROJECTS",
   skipToContent: "Skip to content",
 } as const;
+
+export const mainSections = [
+  { id: "work", index: "01", label: labels.work },
+  { id: "projects", index: "02", label: labels.projects },
+  { id: "publications", index: "03", label: labels.publications },
+] as const;
+
+export function mainSection(id: (typeof mainSections)[number]["id"]) {
+  const section = mainSections.find((entry) => entry.id === id);
+  if (!section) {
+    throw new Error(`Unknown main section: ${id}`);
+  }
+  return section;
+}
 
 export const siteMeta = {
   description:
@@ -122,6 +137,49 @@ export const work: Array<{
       "Developed a LLaMA-based model over ~88 equipment qualification procedures spanning 933 drawings.",
       "Implemented OCR to extract structured text from CAD drawings at ~85% accuracy.",
     ],
+  },
+];
+
+export const publications: Array<{
+  title: string;
+  authors: string[];
+  venue: string;
+  year: string;
+  href: string;
+}> = [
+  {
+    title:
+      "Synthesizing Longitudinal Cutaneous Neurofibroma Imaging for Digital-Twin Burden Quantification",
+    authors: [
+      "Christoph Sadée",
+      "Alex Dils",
+      "Krish Sangani",
+      "Lillian Rubino",
+      "Alexander J Ferenchick",
+      "Varun Wadhwa",
+      "Anushka Poddar",
+      "Tobenna Onyemeh",
+      "Zimuzo Onah",
+      "Dhruv Sharma",
+      "Jackson Bae",
+      "Max Van Puyvelde",
+      "Carlos Romo",
+      "Melinda Jen",
+      "Nkiru Onodugo",
+      "Ayesha Akinkgube",
+      "Qinmei Xu",
+      "Qingtao Kong",
+      "Rui Yang",
+      "Aisha Ebehireime Sokunbi",
+      "Shaoxiong Yao",
+      "Haomiao Huang",
+      "Ifeoma Okoye",
+      "Olivier Gevaert",
+      "Kavita Y. Sarin",
+    ],
+    venue: "MICCAI Workshop on Medical World Models",
+    year: "2026",
+    href: "https://openreview.net/pdf?id=JI0ZzOPW9x",
   },
 ];
 

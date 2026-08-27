@@ -1,14 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { labels } from "@/lib/content";
+import { labels, mainSections } from "@/lib/content";
 
-type SectionId = "now" | "work" | "projects";
+type SectionId = "now" | (typeof mainSections)[number]["id"];
 
 const SECTIONS: { id: SectionId; label: string }[] = [
   { id: "now", label: labels.now },
-  { id: "work", label: labels.work },
-  { id: "projects", label: labels.projects },
+  ...mainSections.map((section) => ({ id: section.id, label: section.label })),
 ];
 
 export function SectionNav() {

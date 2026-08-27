@@ -1,14 +1,18 @@
 import { ArrowRight } from "lucide-react";
-import { ProjectsScrollPad } from "@/components/ProjectsScrollPad";
-import { labels, projects } from "@/lib/content";
+import { SectionReadout } from "@/components/SectionReadout";
+import { mainSection, projects } from "@/lib/content";
 import { displayPeriod, isLinkReady, resolveStack } from "@/lib/format";
+
+const projectsMeta = mainSection("projects");
 
 export function ProjectsSection() {
   return (
-    <section id="projects" aria-labelledby="projects-heading">
-      <h2 id="projects-heading" className="sr-only">
-        {labels.projects}
-      </h2>
+    <section id={projectsMeta.id} aria-labelledby="projects-heading">
+      <SectionReadout
+        headingId="projects-heading"
+        index={projectsMeta.index}
+        label={projectsMeta.label}
+      />
       {projects.map((project) => {
         const periodLabel = displayPeriod(project.period);
         const stack = resolveStack(project.stack, project.name);
@@ -57,7 +61,6 @@ export function ProjectsSection() {
           </div>
         );
       })}
-      <ProjectsScrollPad />
     </section>
   );
 }

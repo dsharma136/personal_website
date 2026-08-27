@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { NowSection } from "@/components/NowSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
+import { PublicationsSection } from "@/components/PublicationsSection";
 import { RevealSection } from "@/components/RevealSection";
 import { WorkSection } from "@/components/WorkSection";
 
@@ -27,6 +28,9 @@ export default function Home() {
             <ProjectsSection />
           </RevealSection>
           <RevealSection index={4}>
+            <PublicationsSection />
+          </RevealSection>
+          <RevealSection index={5}>
             <Footer />
           </RevealSection>
         </div>

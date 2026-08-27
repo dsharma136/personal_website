@@ -2,9 +2,9 @@
 
 import { useEffect } from "react";
 
-export function ProjectsScrollPad() {
+export function SectionScrollPad({ sectionId }: { sectionId: string }) {
   useEffect(() => {
-    const section = document.getElementById("projects");
+    const section = document.getElementById(sectionId);
     const footer = document.querySelector(".page-content footer");
     if (!section) return;
 
@@ -27,7 +27,7 @@ export function ProjectsScrollPad() {
       window.removeEventListener("resize", apply);
       observer.disconnect();
     };
-  }, []);
+  }, [sectionId]);
 
   return null;
 }
