@@ -195,6 +195,7 @@ export const projects: Array<{
     blurb:
       "Card-based micro-learning app serving ~50 daily AI-summarized tech blurbs across 6 categories.",
     stack: ["LangGraph", "HackerNews", "ArXiv", "Brave Search", "Llama 3.3 70B", "Groq", "React"],
+    href: "https://techbytes.vercel.app",
     period: "2026",
   },
   {
